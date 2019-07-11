@@ -9,11 +9,15 @@ const bodyParser = require('body-parser')
 
 const mixesRouter = require('./routes/api/mixes')
 const usersRouter = require('./routes/api/users')
+const indexRouter = require('./routes/index')
 
 const app = express()
 
 require('dotenv').config()
 require('./config/db')
+// view engine setup
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'twig')
 
 app.use(cors())
 app.use(logger('dev'))
@@ -29,8 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(subdomain('api', mixesRouter))
 app.use('/mixes', mixesRouter)
 app.use('/users', usersRouter)
+app.use('/', indexRouter)
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`)
