@@ -29,4 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/api/mixes', mixesRouter)
 app.use('/api/users', usersRouter)
 
-module.exports = app
+const port = process.env.PORT || 3001
+
+app.listen(port, function() {
+  console.log(`Express app running on port ${port}`)
+})
