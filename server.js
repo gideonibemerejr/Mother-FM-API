@@ -2,6 +2,7 @@
 const express = require('express')
 const path = require('path')
 const favicon = require('serve-favicon')
+const subdomain = require('express-subdomain')
 const logger = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
@@ -25,9 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')))
     # Routes for the API
 --------------------------*/
 
-//app.use(subdomain('api'))
-app.use('/api/mixes', mixesRouter)
-app.use('/api/users', usersRouter)
+app.use(subdomain('api', mixesRouter))
+app.use('/mixes', mixesRouter)
+app.use('/users', usersRouter)
 
 const port = process.env.PORT || 3001
 
