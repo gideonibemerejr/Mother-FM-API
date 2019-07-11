@@ -30,7 +30,7 @@ app.use(subdomain('api', mixesRouter))
 app.use('/mixes', mixesRouter)
 app.use('/users', usersRouter)
 
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`)
