@@ -1,3 +1,4 @@
+// const subdomain = require('express-subdomain')
 const express = require('express')
 const path = require('path')
 const favicon = require('serve-favicon')
@@ -11,7 +12,7 @@ const usersRouter = require('./routes/users')
 const app = express()
 
 require('dotenv').config()
-require('./config/database')
+require('./config/db')
 
 app.use(cors())
 app.use(logger('dev'))
@@ -20,6 +21,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use(express.static(path.join(__dirname, 'public')))
 
+/*-------------------------
+    # Routes for the API
+--------------------------*/
+
+//app.use(subdomain('api'))
 app.use('/api/mixes', mixesRouter)
 app.use('/users', usersRouter)
 
