@@ -1,9 +1,18 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
+const mixesCtrl = require('../../controllers/api/mixes')
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' })
-})
+// * Public Routes
+router.get('/', mixesCtrl.getMixes)
+
+// ! Protected Routes
+// Process the token for only the protected routs
+
+router.use(require('../../config/auth'))
+router.get('/:id', mixesCtrl.getOne)
+router.get('/archive', mixesCtrl.getAllMixes)
+router.post('/', mixesCtrl.create)
+router.delete('/', mixesCtrl.deleteMix)
+router.put('/', mixesCtrl.update)
 
 module.exports = router

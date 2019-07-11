@@ -7,7 +7,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const mixesRouter = require('./routes/api/mixes')
-const usersRouter = require('./routes/users')
+const usersRouter = require('./routes/api/users')
 
 const app = express()
 
@@ -27,6 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 //app.use(subdomain('api'))
 app.use('/api/mixes', mixesRouter)
-app.use('/users', usersRouter)
+app.use('/api/users', usersRouter)
 
 module.exports = app
