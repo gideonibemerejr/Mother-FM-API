@@ -1,4 +1,4 @@
-const Mix = require('../models/score')
+const Mix = require('../../models/Mix')
 
 module.exports = {
   getAllMixes,
@@ -19,7 +19,7 @@ async function getAllMixes(req, res) {
   res.status(200).json(mixes)
 }
 
-async function getOneMix(req, res) {
+async function getOne(req, res) {
   const mix = await Mix.findById(req.params.id)
   res.status(200).json(mix)
 }
