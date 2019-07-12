@@ -1,7 +1,6 @@
 const User = require('../../models/User')
 const jwt = require('jsonwebtoken')
-
-const SECRET = process.env.SECRET
+const SECRET = '3'
 
 module.exports = {
   signup,
