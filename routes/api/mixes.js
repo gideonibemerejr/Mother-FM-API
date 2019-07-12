@@ -11,8 +11,14 @@ router.get('/:id', mixesCtrl.getOne)
 
 router.use(require('../../config/auth'))
 router.get('/archive', mixesCtrl.getAllMixes)
-//router.post('/', mixesCtrl.create)
-//router.delete('/', mixesCtrl.deleteMix)
-//router.put('/', mixesCtrl.update)
+//router.post('/', checkAuth, mixesCtrl.create)
+//router.delete('/', checkAuth, mixesCtrl.deleteMix)
+//router.put('/', checkAuth, mixesCtrl.update)
 
+// ? Helper Function
+
+function checkAuth(req, res, next) {
+  if (req.user) return next()
+  return res.status(401).json({ msg: 'Not Authorized' })
+}
 module.exports = router
