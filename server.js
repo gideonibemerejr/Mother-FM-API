@@ -31,9 +31,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 --------------------------*/
 
 //app.use(subdomain('api', mixesRouter))
-app.use('/api/mixes', mixesRouter)
 app.use('/api/users', usersRouter)
 app.use('/', indexRouter)
+// app.use(require('./config/auth'))
+app.use('/api/mixes', mixesRouter)
 
 const port = process.env.PORT || 3001
 

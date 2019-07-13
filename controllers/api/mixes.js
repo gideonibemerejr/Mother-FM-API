@@ -15,8 +15,12 @@ async function getMixes(req, res) {
 }
 
 async function getAllMixes(req, res) {
-  const mixes = await Mix.find({})
-  res.status(200).json(mixes)
+  try {
+    const mixes = await Mix.find({})
+    res.status(200).json(mixes)
+  } catch (error) {
+    res.json({ error })
+  }
 }
 
 async function getOne(req, res) {
