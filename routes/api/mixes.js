@@ -8,10 +8,9 @@ router.get('/:id', mixesCtrl.getOne)
 
 // ! Protected Routes
 // Process the token for only the protected routes
-
 router.use(require('../../config/auth'))
 router.get('/archive', mixesCtrl.getAllMixes)
-//router.post('/', checkAuth, mixesCtrl.create)
+router.post('/', checkAuth, mixesCtrl.create)
 //router.delete('/', checkAuth, mixesCtrl.deleteMix)
 //router.put('/', checkAuth, mixesCtrl.update)
 
