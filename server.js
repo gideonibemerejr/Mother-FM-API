@@ -1,13 +1,13 @@
 // const subdomain = require('express-subdomain')
 const express = require('express')
 const path = require('path')
-const favicon = require('serve-favicon')
-const subdomain = require('express-subdomain')
+
 const logger = require('morgan')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
 const mixesRouter = require('./routes/api/mixes')
+const postsRouter = require('./routes/api/posts')
 const usersRouter = require('./routes/api/users')
 const indexRouter = require('./routes/index')
 
@@ -35,6 +35,7 @@ app.use('/api/users', usersRouter)
 app.use('/', indexRouter)
 // app.use(require('./config/auth'))
 app.use('/api/mixes', mixesRouter)
+app.use('/api/posts', postsRouter)
 
 const port = process.env.PORT || 3001
 
