@@ -14,7 +14,8 @@ async function getPosts(req, res) {
 }
 async function create(req, res) {
   try {
-    await Mix.create(req.body)
+    console.log(req.body)
+    await Post.create(req.body)
     getPosts(req, res)
   } catch (error) {
     res.json({ error })

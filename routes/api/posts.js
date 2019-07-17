@@ -8,8 +8,8 @@ router.get('/', postsCtrl.getPosts)
 
 // ! Protected Routes
 // Process the token for only the protected routes
-router.use(require('../../config/auth'))
-router.post('/', checkAuth, postsCtrl.create)
+//router.use(require('../../config/auth'))
+router.post('/', postsCtrl.create)
 //router.delete('/', checkAuth, postsCtrl.deleteMix)
 //router.put('/', checkAuth, postsCtrl.update)
 
