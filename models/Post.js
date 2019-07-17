@@ -7,7 +7,7 @@ const postSchema = new mongoose.Schema(
       required: true,
       unique: true
     },
-    link: { type: String, required: true, lowercase: true, unique: true },
+    mixlink: { type: String, required: true, lowercase: true, unique: true },
     body: String
   },
   {
